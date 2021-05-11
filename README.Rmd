@@ -42,7 +42,7 @@ An example deal may look like this:
 ```{r}
 library(tidyverse)
 
-source(here::here("R", "funs.R"))
+source(here::here("scripts", "funs.R"))
 
 set.seed(1234)
 create_deal(12) %>% 
@@ -51,7 +51,7 @@ create_deal(12) %>%
 
 Say you fetched and/or predicted these values through a pipeline you or your team set-up. 
 
-For our example, we are just pretending like this happened, the results of which are simulated by the `create_deal()` function whose logic is in "R/funs.R" which is called as the first non set-up step in "run-all.R".
+For our example, we are just pretending like this happened, the results of which are simulated by the `create_deal()` function whose logic is in "scripts/funs.R" which is called as the first non set-up step in "run-all.R".
 
 ### Pipeline Passes Things Through Spreadsheet / Macros
 
@@ -65,7 +65,7 @@ Below, I walk through the steps of the operations, indicating at the start of ea
 * This could be a separate .csv, a location within the .xlsm, or as parameters through the VBScript. 
     * In our case the deal "data-spreadsheet/example_deal.csv" is expected to be written to the same folder where "data/deal_calculator.xlsm" lives; 
     * we also pass in a relative file path via the shell script in *step 2* below.
-2. {DS/FINANCE} Now that the relevant information from upstream is set: the relevant macros are triggered by a VBScript ("vbs/run_vbs.vbs") --> which is triggered by a shell function --> which is run via an R script ("R/run-all.R")
+2. {DS/FINANCE} Now that the relevant information from upstream is set: the relevant macros are triggered by a VBScript ("scripts/run_vbs.vbs") --> which is triggered by a shell function --> which is run via an R script ("scripts/run-all.R")
 3. {FINANCE} The spreadsheet in our case does the following:
 
 * Updates all connections in the workbook (i.e. whatever is in "data/example_deal.csv") -- via the macro `refresh_data`

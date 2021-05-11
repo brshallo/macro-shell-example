@@ -1,15 +1,15 @@
 library(tidyverse)
 
-source(here::here("R", "funs.R"))
+source(here::here("scripts", "funs.R"))
 
 #### SIMULATE AND WRITE OUT DEAL
-
+set.seed(123)
 create_deal(10) %>% 
   write_csv(here::here("data-spreadsheet", "deal_example.csv"))
 
 ### PREP & RUN SHELL SCRIPT
 
-wrapper_loc_norm <- normalizePath(here::here("vbs", "run_vba.vbs"))
+wrapper_loc_norm <- normalizePath(here::here("scripts", "run_vba.vbs"))
 
 vba_loc <- here::here("data-spreadsheet", "deal_calculator.xlsm")
 vba_loc_norm <- normalizePath(vba_loc)

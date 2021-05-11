@@ -39,7 +39,7 @@ An example deal may look like this:
 ``` r
 library(tidyverse)
 
-source(here::here("R", "funs.R"))
+source(here::here("scripts", "funs.R"))
 
 set.seed(1234)
 create_deal(12) %>% 
@@ -66,7 +66,8 @@ your team set-up.
 
 For our example, we are just pretending like this happened, the results
 of which are simulated by the `create_deal()` function whose logic is in
-“R/funs.R” which is called as the first non set-up step in “run-all.R”.
+“scripts/funs.R” which is called as the first non set-up step in
+“run-all.R”.
 
 ### Pipeline Passes Things Through Spreadsheet / Macros
 
@@ -93,9 +94,9 @@ finance:
         *step 2* below.
 
 2.  {DS/FINANCE} Now that the relevant information from upstream is set:
-    the relevant macros are triggered by a VBScript (“vbs/run\_vbs.vbs”)
-    –&gt; which is triggered by a shell function –&gt; which is run via
-    an R script (“R/run-all.R”)
+    the relevant macros are triggered by a VBScript
+    (“scripts/run\_vbs.vbs”) –&gt; which is triggered by a shell
+    function –&gt; which is run via an R script (“scripts/run-all.R”)
 3.  {FINANCE} The spreadsheet in our case does the following:
 
 -   Updates all connections in the workbook (i.e. whatever is in
