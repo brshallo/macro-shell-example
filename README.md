@@ -1,22 +1,30 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-This repo provides the example for my blog post on \[Macros in the
-Shell: Integrating That Spreadsheet From Finance Into Your Messy Data
-Pipeline\].
+# Macros in the Shell… Example
 
-# Example
+This repo provides the example walk-through for my blog post on [Macros
+in the Shell: Integrating That Spreadsheet From Finance Into A Data
+Pipeline](https://www.bryanshalloway.com/2021/05/10/macros-in-the-shell-integrating-that-spreadsheet-from-finance-into-a-local-data-pipeline/).
 
-Let’s break down the kinds of pipelines we are talking about in \[the
-associated post\] into theoretical steps
+Click “Code” to download or clone this repository so that you can go
+through it on your own machine.
 
-1.  [Your Pipeline Calculates Things](#your-pipeline-calculates-things)
-2.  [You Pass Those Things Through Spreadsheet /
-    Macro](#you-pass-those-things-through-spreadsheet-macro)
-3.  [Your Pipeline Collects Outputs from Spreadsheet /
-    Macro](#your-pipeline-collects-outputs-from-spreadsheet-macro)
+![](images/clone-repo.PNG)
 
-## Your Pipeline Calculates Things
+## Example
+
+Let’s break down the kinds of pipelines we are talking about in [the
+post](https://www.bryanshalloway.com/2021/05/10/macros-in-the-shell-integrating-that-spreadsheet-from-finance-into-a-local-data-pipeline/)
+into steps:
+
+1.  [Pipeline Computes Things](#pipeline-computes-things)
+2.  [Pipeline Passes Things Through Spreadsheet /
+    Macros](#pipeline-passes-things-through-spreadsheet-macros)
+3.  [Pipeline Collects Outputs from Spreadsheet /
+    Macro](#pipeline-collects-outputs-from-spreadsheet-macro)
+
+### Pipeline Computes Things
 
 For our simple example, pretend you are evaluating deals for
 investments. Deals come in batches of projects. Projects can have
@@ -60,7 +68,7 @@ For our example, we are just pretending like this happened, the results
 of which are simulated by the `create_deal()` function whose logic is in
 “R/funs.R” which is called as the first non set-up step in “run-all.R”.
 
-## You Pass Those Things Through Spreadsheet / Macro
+### Pipeline Passes Things Through Spreadsheet / Macros
 
 This is where most of the things relevant to the post happen. The
 attributes for your deal need to be passed as inputs through an excel
@@ -97,25 +105,25 @@ finance:
     calculations and excel formulas
 -   copies total deal value to a new cell (this macro is essentially
     meaningless, but just an extra macro thrown in for example /
-    testing’s sake) – via `copy_deal_value` macro
+    testing) – via `copy_deal_value` macro
 
 *…you could imagine there being some more complicated calculations…*
 
-## Your Pipeline Collects Outputs from Spreadsheet / Macro
+### Pipeline Collects Outputs from Spreadsheet / Macro
 
 The `readxl::read_excel()` line in “run-all.R” then reads the *total
 deal value* back into R (owner of the spreadsheet would need to ensure
 that location this is written to will be consistent). And the data
 pipeline continues on its way…
 
-# Appendix
+## Appendix
 
-# Threads helpful for setting-up VBScript
+### Threads helpful for setting-up VBScript
 
 Setting-up the VB wrapper script was a bit annoying (as was setting-up
 relative paths and passing in parameters to the VB script). Below are a
 few threads I found helpful:
 
 -   <https://techcommunity.microsoft.com/t5/excel/power-query-source-from-relative-paths/m-p/206150>
--   <https://stackoverflow.com/a/15621773/9059865> \# params
+-   <https://stackoverflow.com/a/15621773/9059865>
 -   <https://stackoverflow.com/questions/20979154/how-to-close-excel-file-from-vbscript-without-being-prompted>

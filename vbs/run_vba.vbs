@@ -17,9 +17,11 @@ Sub ExcelMacroExample()
   Set xlApp = CreateObject("Excel.Application") 
   Set xlBook = xlApp.Workbooks.Open(xlPath, 0, FALSE)
   
-  'Set these to True to inspect
+  'Currently you can think of these steps as being in a 'headless' mode
+  'Set these to True to watch while running
   xlApp.Visible = False
   xlApp.DisplayAlerts = FALSE
+  
   xlApp.Run "refresh_data"
   xlApp.Run "copy_deal_value"
 
