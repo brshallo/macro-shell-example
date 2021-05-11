@@ -40,7 +40,7 @@ source(here::here("R", "funs.R"))
 
 set.seed(1234)
 create_deal(12) %>% 
-  gt::gt()
+  knitr::kable()
 ```
 
 Say you fetched and/or predicted these values through a pipeline you or your team set-up. 
