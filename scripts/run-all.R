@@ -9,6 +9,7 @@ create_deal(10) %>%
 
 ### PREP & RUN SHELL SCRIPT
 
+# May need to do shQuote() on this for some versions of Windows.
 wrapper_loc_norm <- normalizePath(here::here("scripts", "run_vba.vbs"))
 
 vba_loc <- here::here("data-spreadsheet", "deal_calculator.xlsm")
